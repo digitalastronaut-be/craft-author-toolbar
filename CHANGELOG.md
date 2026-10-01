@@ -1,5 +1,10 @@
 # Release Notes for Author toolbar
 
+## v1.4.0 - 2026.10.02
+
+- Fixed the toolbar's visibility being baked into the Blitz static cache instead of evaluated per visitor: whoever's request happened to (re)generate the cached page used to determine whether every subsequent visitor saw the toolbar, until the cache regenerated again [#14](https://github.com/tim-digitalastronaut/craft-author-toolbar/issues/14)
+- Fixed the toolbar's CSRF token being frozen at Blitz cache-generation time, which could cause its search/SEO menu requests to fail CSRF validation for visitors other than whoever generated the cache
+
 ## v1.3.0-beta - 2026.05.27
 
 #### Codebase

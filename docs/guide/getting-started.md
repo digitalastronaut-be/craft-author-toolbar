@@ -25,7 +25,7 @@ For the toolbar to load correctly you need to have at least the basic HTML struc
 :::
 
 ::: warning
-The current version of the toolbar is not compatible with the <u>**blitz caching plugin**</u> because it's not injected via JS. Native cache tags will also cause unwanted behaviours.
+Remove any native Craft `{% cache %}` tags that wrap the page's `<body>` - they can prevent the toolbar from being injected or cache it into a stale state. When the [Blitz](https://putyourlightson.com/plugins/blitz) plugin is installed and enabled, the toolbar automatically defers its permission check to the request that loads it, so it stays correct per-visitor even when the surrounding page is served from Blitz's static cache.
 :::
 
 If all this is done and the enable author toolbar setting on the `Author toolbar > Settings` page is enabled it should load correctly

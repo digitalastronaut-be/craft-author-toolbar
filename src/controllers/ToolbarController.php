@@ -12,6 +12,8 @@
 
 namespace digitalastronaut\craftauthortoolbar\controllers;
 
+use Craft;
+
 use craft\elements\Entry;
 use craft\web\Controller;
 
@@ -42,6 +44,13 @@ class ToolbarController extends Controller {
 
         $entry = Entry::find()->id($entryId)->one();
         $settings = AuthorToolbar::getInstance()->getSettings();
+
+        // This action is never served from a static page cache (Blitz excludes
+        // controller actions by design), so the CSRF token returned here always
+        // reflects the current visitor's session. The bootstrap script that calls
+        // this action uses it to refresh the one baked into a (possibly stale)
+        // cached page before the toolbar makes any further authenticated requests.
+        $this->response->headers->set('X-CSRF-Token', Craft::$app->request->getCsrfToken());
 
         return $this->renderTemplate('author-toolbar/_toolbar.twig', [
             'entry' => $entry,

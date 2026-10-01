@@ -207,17 +207,28 @@ trait PluginTrait {
                 $settings = $this->getSettings();
 
                 if (!$settings->toolbarEnabled) return;
-                if (!Craft::$app->user->checkPermission('author-toolbar:access-toolbar')) return;
                 if (Craft::$app->request->isPreview) return;
                 if (Craft::$app->request->isAjax) return;
                 if (Craft::$app->request->isConsoleRequest) return;
 
+                if (
+                    !Craft::$app->plugins->isPluginEnabled('blitz') && 
+                    !Craft::$app->user->checkPermission('author-toolbar:access-toolbar')
+                ) return;
+
                 $script = <<<JS
                     document.addEventListener("DOMContentLoaded", async () => {
                         try {
-                            const toolbarElement = await fetch("/actions/author-toolbar/toolbar/get-html?entryId={$entryId}");
-                            const toolbarElementHtmlString = await toolbarElement.text();
-                            
+                            const response = await fetch("/actions/author-toolbar/toolbar/get-html?entryId={$entryId}");
+                            if (!response.ok) return;
+
+                            const freshCsrfToken = response.headers.get("X-CSRF-Token");
+                            if (freshCsrfToken && window.craftAuthorToolbar) {
+                                window.craftAuthorToolbar.csrfTokenValue = freshCsrfToken;
+                            }
+
+                            const toolbarElementHtmlString = await response.text();
+
                             document.body.insertAdjacentHTML('beforeend', toolbarElementHtmlString);
                         } catch (error) {
                             console.error('Failed to load author toolbar:', error);
