@@ -5,7 +5,7 @@ All the functionalities provided by the author toolbar are split up into chunks.
 ## Default chunks
 
 1. [Start menu](/chunks/start-menu)
-2. [Action buttons](/chunks/action-buttons)
+2. [Quick actions](/chunks/quick-actions)
 3. [Global page search](/chunks/global-page-search)
 4. [SEO menu](/chunks/seo-menu)
 5. [Help menu](/chunks/help-menu)

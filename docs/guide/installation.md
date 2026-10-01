@@ -2,7 +2,7 @@
 
 ## Composer
 
-Install the latest version or a specific realese of the author toolbar via composer with the following console command
+Install the latest version or a specific release of the author toolbar via composer with the following console command
 
 ::: code-group
 

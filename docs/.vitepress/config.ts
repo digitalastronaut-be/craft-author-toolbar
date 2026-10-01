@@ -4,7 +4,7 @@ export default defineConfig({
 	title: "Author toolbar",
 	description: "Documentation",
 	themeConfig: {
-		logo: "/public/icons/logo.svg",
+		logo: "/icons/logo.svg",
 		search: {
 			provider: "local",
 		},

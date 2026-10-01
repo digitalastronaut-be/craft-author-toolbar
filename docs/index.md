@@ -32,10 +32,10 @@ features:
     - title: Share previews
       icon: 👀
       details: Preview how your websites will look when shared on social platforms.
-    - title: Image analasys
+    - title: Image analysis
       icon: 🏞️
       details: Quickly get an overview of heavy images that are slowing down the current page.
-    - title: Build in bug reports
+    - title: Built-in bug reports
       icon: 🪲
       details: Get valuable info like screen resolution, browser version, operating system and location/user related info easily.
 ---
