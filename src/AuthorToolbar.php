@@ -22,6 +22,7 @@ use craft\base\Plugin;
 use craft\helpers\UrlHelper;
 
 use digitalastronaut\craftauthortoolbar\models\Settings;
+use digitalastronaut\craftauthortoolbar\services\ServicesTrait;
 
 /**
  * Class AuthorToolbar
@@ -31,6 +32,7 @@ use digitalastronaut\craftauthortoolbar\models\Settings;
  * @since       v1.0.0-beta
  */
 class AuthorToolbar extends Plugin {
+    use ServicesTrait;
     use PluginTrait;
 
     public bool $hasCpSettings = true;

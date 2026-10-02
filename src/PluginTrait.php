@@ -183,6 +183,8 @@ trait PluginTrait {
      */
     protected function registerAssetBundles(): void {
         Craft::$app->view->registerAssetBundle(AuthorToolbarAssets::class);
+
+        $this->getVite()->register('src/web/assets/src/js/index.js');
     }
 
     /**

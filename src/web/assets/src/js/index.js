@@ -1,3 +1,5 @@
+import "../scss/index.scss";
+
 import "./components/authorToolbar.js";
 import "./components/startMenu.js";
 import "./components/createMenu.js";

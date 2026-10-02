@@ -4,8 +4,8 @@
 	"description": "A frontend toolbar that enhances the authoring experience",
 	"main": "index.js",
 	"scripts": {
-		"plugin:dev": "mix watch",
-		"plugin:build": "mix --production",
+		"plugin:dev": "vite",
+		"plugin:build": "vite build",
 		"docs:dev": "vitepress dev docs --port=3000",
 		"docs:build": "vitepress build docs",
 		"docs:preview": "vitepress preview docs"
@@ -15,10 +15,8 @@
 	"license": "ISC",
 	"type": "module",
 	"devDependencies": {
-		"laravel-mix": "^6.0.49",
-		"resolve-url-loader": "^5.0.0",
 		"sass": "^1.93.2",
-		"sass-loader": "^12.6.0",
+		"vite": "^8.0.0",
 		"vitepress": "^2.0.0-alpha.20"
 	},
 	"dependencies": {
