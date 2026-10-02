@@ -1,8 +1,10 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
+	base: "/author-toolbar/",
 	title: "Author toolbar",
 	description: "Documentation",
+	head: [["link", { rel: "icon", type: "image/svg+xml", href: "/author-toolbar/icons/logo.svg" }]],
 	themeConfig: {
 		logo: "/icons/logo.svg",
 		search: {
